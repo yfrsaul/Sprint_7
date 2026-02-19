@@ -1,5 +1,6 @@
 package scooter.client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import pojo.Courier;
 import pojo.CourierCredentials;
@@ -9,6 +10,7 @@ import static scooter.client.ScooterApi.*;
 
 public class CourierClient {
 
+    @Step("Создать курьера")
     public ValidatableResponse create(Courier courier) {
         return given()
                 .filter(allureFilter())
@@ -19,6 +21,7 @@ public class CourierClient {
                 .then();
     }
 
+    @Step("Логин курьера")
     public ValidatableResponse login(CourierCredentials creds) {
         return given()
                 .filter(allureFilter())
@@ -29,6 +32,7 @@ public class CourierClient {
                 .then();
     }
 
+    @Step("Удалить курьера")
     public ValidatableResponse delete(int courierId) {
         return given()
                 .filter(allureFilter())

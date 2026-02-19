@@ -1,5 +1,6 @@
 package scooter.client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import pojo.CreateOrderRequest;
 
@@ -8,6 +9,7 @@ import static scooter.client.ScooterApi.*;
 
 public class OrderClient {
 
+    @Step("Создать заказ")
     public ValidatableResponse create(CreateOrderRequest order) {
         return given()
                 .filter(allureFilter())
@@ -18,6 +20,7 @@ public class OrderClient {
                 .then();
     }
 
+    @Step("Получить список заказов")
     public ValidatableResponse list() {
         return given()
                 .filter(allureFilter())
